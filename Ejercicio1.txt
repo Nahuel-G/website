@@ -1,0 +1,77 @@
+No sabia como mostrar lo que hice asi que copio y pego mi terinal, por las dudas para resolver el ejercicio 1 se utiliza git stash para guardar los cambios temporalmente y depues se vuelve a esa rama y se usa el comando git stash apply y vuelven esos cambios .
+
+
+
+nahue@NAWE-PC MINGW64 /c/desarrollo/website (custom-navbar)
+$ git stash
+No local changes to save
+
+nahue@NAWE-PC MINGW64 /c/desarrollo/website (custom-navbar)
+$ git add contrasenias.txt
+warning: in the working copy of 'contrasenias.txt', LF will be replaced by CRLF the next time Git touches it
+
+nahue@NAWE-PC MINGW64 /c/desarrollo/website (custom-navbar)
+$ git stash
+Saved working directory and index state WIP on custom-navbar: 5f2d126 first commit
+
+nahue@NAWE-PC MINGW64 /c/desarrollo/website (custom-navbar)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+nahue@NAWE-PC MINGW64 /c/desarrollo/website (main)
+$ dir
+README.MD  status.js
+
+nahue@NAWE-PC MINGW64 /c/desarrollo/website (main)
+$ git rm status.js
+rm 'status.js'
+
+nahue@NAWE-PC MINGW64 /c/desarrollo/website (main)
+$ git commit -m "Eliminar archivo status.js"
+[main 1da94aa] Eliminar archivo status.js
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 status.js
+
+nahue@NAWE-PC MINGW64 /c/desarrollo/website (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+nahue@NAWE-PC MINGW64 /c/desarrollo/website (main)
+$ git checkout custom-navbar
+Switched to branch 'custom-navbar'
+
+nahue@NAWE-PC MINGW64 /c/desarrollo/website (custom-navbar)
+$ git stash apply
+On branch custom-navbar
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   contrasenias.txt
+
+
+nahue@NAWE-PC MINGW64 /c/desarrollo/website (custom-navbar)
+$ git push
+fatal: The current branch custom-navbar has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin custom-navbar
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+
+nahue@NAWE-PC MINGW64 /c/desarrollo/website (custom-navbar)
+$  git push --set-upstream origin custom-navbar
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'custom-navbar' on GitHub by visiting:
+remote:      https://github.com/Nahuel-G/website/pull/new/custom-navbar
+remote:
+To https://github.com/Nahuel-G/website.git
+ * [new branch]      custom-navbar -> custom-navbar
+branch 'custom-navbar' set up to track 'origin/custom-navbar'.
+
